@@ -39,14 +39,12 @@ static const char inactive_foreground_col[] = "#30FFA4";
 static const char *colors[][3]      = {
 	/*               fg                       bg                  border            */
 	[SchemeNorm] = { inactive_foreground_col, inactive_menu_col,  inactive_border_col},
-	[SchemeSel]  = { active_foreground_col, active_menu_col,  active_border_col      },
-	[SchemeTitle]= { inactive_foreground_col, inactive_menu_col, inactive_menu_col     },
+	[SchemeSel]  = { active_foreground_col, active_menu_col,  active_border_col  },
 };
 static const unsigned int alphas[][3] = {
 	/*               fg      bg        border     */
 	[SchemeNorm] = { OPAQUE, baralpha, borderalpha },
 	[SchemeSel]  = { OPAQUE, baralpha, borderalpha },
-	[SchemeTitle]= { OPAQUE, baralpha, borderalpha },
 };
 
 
