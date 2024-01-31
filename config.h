@@ -1,9 +1,10 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 4;        /* border pixel of windows */
+static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int gappx     = 8;        /* gaps between windows */
-static const unsigned int snap      = 32;       /* snap pixel */
+//static const unsigned int snap      = 32;       /* snap pixel */
+static const unsigned int snap      = 5;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "RobotoMono Nerd Font Propo:style=Bold:size=13" };
@@ -13,7 +14,7 @@ static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#005577";
-static const unsigned int baralpha  = 0xBF;
+static const unsigned int baralpha  = 0xED; // 90% opaque
 static const unsigned int borderalpha = OPAQUE;
 
 static const char lightGreen[]       = "#30FFA4";
@@ -61,9 +62,17 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	/*      class    instance  title  tags mask  isfloating  monitor (0=main, 1=second) */
+	    {  "steam" ,   NULL,   NULL,   1 << 3,       0,         0 },
+	    { "Lutris" ,   NULL,   NULL,   1 << 3,       0,         0 },
+	    { "heroic" ,   NULL,   NULL,   1 << 3,       0,         0 },
+        {"obsidian",   NULL,   NULL,   1 << 2,       0,         0 },
+        { "Thunar" ,   NULL,   NULL,   1 << 7,       0,         0 },
+        {  "Code"  ,   NULL,   NULL,   1 << 6,       0,         0 },
+    	{ "discord",   NULL,   NULL,   1 << 4,       0,         1 },
+	    { "Spotify",   NULL,   NULL,   1 << 8,       0,         1 },
+        {"Zathura" ,   NULL,   NULL,   1 << 2,       0,         1 },
+
 };
 
 /* layout(s) */
@@ -101,6 +110,7 @@ static const char *qalccmd[]      = { "=", NULL};
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
+	{ MODKEY,                       XK_F12,    spawn,          SHCMD("systemctl suspend") },
 	{ MODKEY,			XK_p,      spawn,          {.v = dmenucmdnew } },
 	{ MODKEY,			XK_b,      spawn,          {.v = browsercmd } },
 	{ MODKEY,			XK_0,      spawn,          {.v = qalccmd } },
@@ -121,6 +131,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
+	{ MODKEY|ShiftMask,             XK_f,      togglefullscr,  {0} },
 	//{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
