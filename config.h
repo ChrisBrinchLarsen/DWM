@@ -1,4 +1,5 @@
 /* See LICENSE file for copyright and license details. */
+#import "masterConfig.h"
 
 /* appearance */
 static const unsigned int borderpx  = 3;        /* border pixel of windows */
