@@ -47,7 +47,6 @@ static const Rule rules[] = {
 	    { "Lutris" ,   NULL,   NULL,   1 << 3,       0,         0 },
 	    { "heroic" ,   NULL,   NULL,   1 << 3,       0,         0 },
         {"obsidian",   NULL,   NULL,   1 << 2,       0,         0 },
-        { "Thunar" ,   NULL,   NULL,   1 << 7,       0,         0 },
         {  "Code"  ,   NULL,   NULL,   1 << 6,       0,         0 },
     	{ "discord",   NULL,   NULL,   1 << 4,       0,         1 },
 	    { "Spotify",   NULL,   NULL,   1 << 8,       0,         1 },
